@@ -9,3 +9,10 @@ body {
 .placeholder-box {
   min-height: 240px;
 }
+
+/* Картинка в карточке товара: одинаковая высота, рисунок целиком */
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+  background-color: #eef5ff;
+}
