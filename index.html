@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная — Bootstrap Shop</title>
+  <!-- Bootstrap CSS через CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  >
+  <!-- Свои стили подключаем после Bootstrap -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="bg-primary text-white py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-8">
+          <h1 class="h3 mb-1">Bootstrap Shop</h1>
+          <p class="mb-0 opacity-75">
+            Учебный интернет-магазин электроники и товаров для дома
+          </p>
+        </div>
+        <div class="col-12 col-md-4 text-md-end mt-3 mt-md-0">
+          <span class="badge bg-light text-primary">КР №2</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Навигация -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Товар</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order.html">Заявка</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero-блок: две колонки на больших экранах -->
+    <section class="container my-5">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-6">
+          <h2 class="display-5 fw-bold">Электроника и товары для дома</h2>
+          <p class="lead text-muted">
+            Аксессуары для ноутбука, техника и полезные мелочи.
+            Доставка за 1–3 дня и гарантия 12 месяцев на все товары.
+          </p>
+          <a class="btn btn-primary btn-lg" href="catalog.html">Перейти в каталог</a>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="placeholder-box p-5 bg-light border rounded d-flex align-items-center justify-content-center text-center">
+            <p class="mb-0 text-muted">Здесь будет баннер с акциями магазина.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Преимущества: фон на всю ширину через container-fluid -->
+    <section class="container-fluid bg-light py-5 px-0">
+      <div class="container">
+        <h2 class="text-center mb-4">Почему выбирают нас</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="p-4 border rounded h-100 bg-white">
+              <h3 class="h5">Быстрая доставка</h3>
+              <p class="mb-0 text-muted">
+                Доставляем заказы по городу за 1–3 рабочих дня.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="p-4 border rounded h-100 bg-white">
+              <h3 class="h5">Гарантия качества</h3>
+              <p class="mb-0 text-muted">
+                На все товары действует гарантия 12 месяцев.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="p-4 border rounded h-100 bg-white">
+              <h3 class="h5">Удобная оплата</h3>
+              <p class="mb-0 text-muted">
+                Оплата картой на сайте или при получении заказа.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Популярные товары: 1, 2 или 3 колонки в зависимости от экрана -->
+    <section class="container my-5" id="popular">
+      <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Популярные товары</h2>
+        <a class="btn btn-outline-primary" href="catalog.html">Все товары</a>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="border rounded h-100 p-4 d-flex flex-column">
+            <div>
+              <span class="badge bg-success mb-3">Новинка</span>
+            </div>
+            <h3 class="h5">Беспроводная мышь Silent M2</h3>
+            <p class="text-muted">
+              Тихие кнопки, работает до 12 месяцев от одной батарейки.
+            </p>
+            <p class="fw-bold mb-3 mt-auto">1500 руб.</p>
+            <div>
+              <a class="btn btn-primary" href="product.html">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="border rounded h-100 p-4 d-flex flex-column">
+            <div>
+              <span class="badge bg-warning text-dark mb-3">Хит</span>
+            </div>
+            <h3 class="h5">Чехол для ноутбука 15,6"</h3>
+            <p class="text-muted">
+              Мягкий чехол из неопрена с карманом для зарядки.
+            </p>
+            <p class="fw-bold mb-3 mt-auto">1000 руб.</p>
+            <div>
+              <a class="btn btn-primary" href="product.html">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="border rounded h-100 p-4 d-flex flex-column">
+            <div>
+              <span class="badge bg-danger mb-3">Скидка</span>
+            </div>
+            <h3 class="h5">Bluetooth-колонка Mini Sound</h3>
+            <p class="text-muted">
+              Компактная колонка с защитой от брызг и 10 часами работы.
+            </p>
+            <p class="fw-bold mb-3 mt-auto">2000 руб.</p>
+            <div>
+              <a class="btn btn-primary" href="product.html">Подробнее</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-12 col-md-6">
+          <p class="mb-0">&copy; 2026 Bootstrap Shop. Учебный проект.</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a class="text-white text-decoration-none me-3" href="catalog.html">Каталог</a>
+          <a class="text-white text-decoration-none" href="order.html">Заявка</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS: нужен для мобильного меню -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
