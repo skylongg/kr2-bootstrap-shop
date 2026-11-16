@@ -4,13 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Чехол для ноутбука — Bootstrap Shop</title>
-  <!-- Bootstrap CSS через CDN -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous"
-  >
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <!-- Bootstrap подключён локально из папки vendor -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <!-- Свои стили подключаем после Bootstrap -->
   <link rel="stylesheet" href="css/custom.css">
 </head>
@@ -43,6 +39,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="order.html">Заявка</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -84,6 +83,7 @@
       </div>
       <div class="col-12 col-lg-6">
         <span class="badge bg-warning text-dark mb-3">Хит</span>
+        <span class="badge bg-success mb-3">В наличии</span>
         <h1 class="h2">Чехол для ноутбука 15,6"</h1>
         <p class="lead text-muted">
           Мягкий чехол из неопрена защищает ноутбук от царапин, пыли и лёгких ударов.
@@ -91,51 +91,122 @@
         </p>
         <p class="fs-3 fw-bold">1000 руб.</p>
         <div class="d-flex flex-wrap gap-2 mb-4">
-          <a class="btn btn-primary btn-lg" href="order.html">Оформить заявку</a>
+          <!-- ?product=... — товар сразу выбран в форме заявки -->
+          <a class="btn btn-primary btn-lg" href="order.html?product=laptop-sleeve">Оформить заявку</a>
           <a class="btn btn-outline-secondary btn-lg" href="catalog.html">Назад в каталог</a>
         </div>
+        <!-- Короткий список плюсов: компонент list-group -->
+        <ul class="list-group mb-4">
+          <li class="list-group-item">Доставка по городу за 1–3 рабочих дня</li>
+          <li class="list-group-item">Гарантия 12 месяцев</li>
+          <li class="list-group-item">Оплата картой или при получении</li>
+        </ul>
         <div class="alert alert-warning" role="alert">
           Это учебная карточка товара. Данные используются для демонстрации Bootstrap-компонентов.
         </div>
       </div>
     </div>
 
-    <!-- Таблица характеристик -->
+    <!-- Вкладки: компонент tabs -->
     <section class="mt-5">
-      <h2 class="h4 mb-3">Характеристики</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-bordered align-middle">
-          <tbody>
-            <tr>
-              <th scope="row">Категория</th>
-              <td>Аксессуары</td>
-            </tr>
-            <tr>
-              <th scope="row">Цена</th>
-              <td>1000 руб.</td>
-            </tr>
-            <tr>
-              <th scope="row">Материал</th>
-              <td>Неопрен</td>
-            </tr>
-            <tr>
-              <th scope="row">Размер</th>
-              <td>Для ноутбуков до 15,6"</td>
-            </tr>
-            <tr>
-              <th scope="row">Цвет</th>
-              <td>Тёмно-синий</td>
-            </tr>
-            <tr>
-              <th scope="row">Наличие</th>
-              <td>В наличии</td>
-            </tr>
-            <tr>
-              <th scope="row">Гарантия</th>
-              <td>12 месяцев</td>
-            </tr>
-          </tbody>
-        </table>
+      <h2 class="h4 mb-3">О товаре</h2>
+      <ul class="nav nav-tabs" id="productTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="description-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#description-pane"
+            type="button"
+            role="tab"
+            aria-controls="description-pane"
+            aria-selected="true"
+          >
+            Описание
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="specs-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#specs-pane"
+            type="button"
+            role="tab"
+            aria-controls="specs-pane"
+            aria-selected="false"
+          >
+            Характеристики
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="delivery-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#delivery-pane"
+            type="button"
+            role="tab"
+            aria-controls="delivery-pane"
+            aria-selected="false"
+          >
+            Доставка
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content border border-top-0 rounded-bottom p-4">
+        <div class="tab-pane fade show active" id="description-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+          <p>
+            Чехол сшит из неопрена толщиной 5 мм, поэтому хорошо смягчает удары.
+            Молния идёт по всей длине, ноутбук легко достать.
+          </p>
+          <p class="mb-0">
+            Во внешний карман помещаются зарядка, мышь и кабели. Чехол подойдёт для учёбы,
+            работы и поездок.
+          </p>
+        </div>
+        <div class="tab-pane fade" id="specs-pane" role="tabpanel" aria-labelledby="specs-tab" tabindex="0">
+          <!-- Таблица характеристик -->
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered align-middle mb-0">
+              <caption>Характеристики чехла для ноутбука</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Категория</th>
+                  <td>Аксессуары</td>
+                </tr>
+                <tr>
+                  <th scope="row">Цена</th>
+                  <td>1000 руб.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Материал</th>
+                  <td>Неопрен</td>
+                </tr>
+                <tr>
+                  <th scope="row">Размер</th>
+                  <td>Для ноутбуков до 15,6"</td>
+                </tr>
+                <tr>
+                  <th scope="row">Цвет</th>
+                  <td>Тёмно-синий</td>
+                </tr>
+                <tr>
+                  <th scope="row">Наличие</th>
+                  <td>В наличии</td>
+                </tr>
+                <tr>
+                  <th scope="row">Гарантия</th>
+                  <td>12 месяцев</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="delivery-pane" role="tabpanel" aria-labelledby="delivery-tab" tabindex="0">
+          <p>Курьером по городу — 1–3 рабочих дня, стоимость 300 руб.</p>
+          <p class="mb-0">Самовывоз из пункта выдачи — бесплатно, адреса на странице <a href="contacts.html">«Контакты»</a>.</p>
+        </div>
       </div>
     </section>
 
@@ -202,6 +273,49 @@
         </div>
       </div>
     </section>
+
+    <!-- Похожие товары -->
+    <section class="mt-5">
+      <h2 class="h4 mb-3">Похожие товары</h2>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card product-card h-100 shadow-sm">
+            <img src="images/backpack.svg" class="card-img-top" alt="Рюкзак для ноутбука" width="400" height="300">
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title h5">Рюкзак для ноутбука City</h3>
+              <p class="fw-bold fs-5 mt-auto">2600 руб.</p>
+              <div>
+                <a class="btn btn-outline-primary" href="catalog.html">Смотреть в каталоге</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card product-card h-100 shadow-sm">
+            <img src="images/mouse.svg" class="card-img-top" alt="Беспроводная мышь" width="400" height="300">
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title h5">Беспроводная мышь Silent M2</h3>
+              <p class="fw-bold fs-5 mt-auto">1500 руб.</p>
+              <div>
+                <a class="btn btn-outline-primary" href="catalog.html">Смотреть в каталоге</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card product-card h-100 shadow-sm">
+            <img src="images/cable.svg" class="card-img-top" alt="Кабель USB-C" width="400" height="300">
+            <div class="card-body d-flex flex-column">
+              <h3 class="card-title h5">Кабель USB-C плетёный, 2 м</h3>
+              <p class="fw-bold fs-5 mt-auto">900 руб.</p>
+              <div>
+                <a class="btn btn-outline-primary" href="catalog.html">Смотреть в каталоге</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Подвал -->
@@ -213,17 +327,14 @@
         </div>
         <div class="col-12 col-md-6 text-md-end">
           <a class="text-white text-decoration-none me-3" href="catalog.html">Каталог</a>
-          <a class="text-white text-decoration-none" href="order.html">Заявка</a>
+          <a class="text-white text-decoration-none me-3" href="order.html">Заявка</a>
+          <a class="text-white text-decoration-none" href="contacts.html">Контакты</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Bootstrap JS: нужен для меню, dropdown и accordion -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"
-  ></script>
+  <!-- Bootstrap JS подключён локально: меню, dropdown, вкладки, accordion -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
